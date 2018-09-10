@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Object Properties</title>
+</head>
+<body>
+	<script>
+		var x = [];
+		
+		for(var i = 0; i < 100; i++)
+		{
+			var temp = i+1;
+
+			if(temp%2 === 0 && temp%3 === 0)
+			{
+				x[i] = {index: i+1, label: "fizz buzz"};
+			}
+			else if(temp%3 === 0)
+			{
+				x[i] =  {index: i+1, label: "buzz"};
+			}
+			else if(temp%2 === 0)
+			{
+				x[i] = { index: i+1, label: "fizz"};
+			}
+			else
+			{
+				x[i] = {index: i + 1};
+			}
+
+			if(x[i].label == "fizz") //checks if label is correct. Then prints it.
+			{
+				console.log(x[i])
+			}
+		}
+		console.log(x)
+	</script>
+</body>
+</html>

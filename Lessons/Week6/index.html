@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form id="form">
+		<input type="text" />
+		<input type="button" value="save" />
+		<input type="button" value="delete" />
+	</form>
+
+	<div id="result">
+		
+	</div>
+	<script type="text/javascript">
+		if(typeOf(Storage) !== "undefined")
+		{
+
+			var input = document.querySelector('#form input[type='text']');
+			var save = document.querySelector('#form input[value='save']');
+			var del = document.querySelector('#form input[value='delete']');
+			var res = document.querySelector('#result');
+
+			save.addEventListener("click", saveData);
+			function saveData(e)
+			{
+				localStorage.setItem("name", input.value);
+			}
+
+			del.addEventListener("click", deleteData)
+			function deleteData(e)
+			{
+				localStorage.removeItem("name");
+			}
+
+			if(localStorage.name !== "undefined")
+			{
+				res.innerHTML = localStorage.name;
+			}
+		}
+		else
+		{
+			alert('Sorry! No web storage support');
+		}
+	</script>
+</body>
+</html>
